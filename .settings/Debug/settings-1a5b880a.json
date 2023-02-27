@@ -6,7 +6,7 @@
   "UiPath.UiAutomation.Activities.Generic.AlterIfDisabled": "False",
   "UiPath.UiAutomation.Activities.Generic.CaptureScreenshots": "True",
   "UiPath.UiAutomation.Activities.Generic.ShowClosestMatchesInSearchError": "True",
-  "UiPath.UiAutomation.Activities.Browser.BrowserType": "IE",
+  "UiPath.UiAutomation.Activities.Browser.BrowserType": "Chrome",
   "UiPath.UiAutomation.Activities.Browser.Private": "False",
   "UiPath.UiAutomation.Activities.Browser.NewSession": "False",
   "UiPath.UiAutomation.Activities.Browser.Hidden": "False",
