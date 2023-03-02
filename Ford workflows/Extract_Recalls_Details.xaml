@@ -106,13 +106,6 @@
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="704,1405" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="aanameAttribute">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:String">CLOCKSPRING TO DRIVER SIDE FRONTAL AIR BAG WIRE HARNESS REPLACEMENT</Literal>
-                </Variable.Default>
-              </Variable>
-            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -157,35 +150,35 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:CommentOut>
-            <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="642,957" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="642,957" sap2010:WorkflowViewState.IdRef="Sequence_16">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'FordRecal Page'" sap:VirtualizedContainerService.HintSize="580,846" sap2010:WorkflowViewState.IdRef="BrowserScope_5" InformativeScreenshot="ac492ab51db480e95bf7f6c7c444d3dd" Selector="&lt;html app='chrome.exe' title='Ford Recalls | Ford Owner Support' /&gt;">
+              <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'FordRecal Page'" sap:VirtualizedContainerService.HintSize="580,846" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="6f6ec8cb1652587617c11372dea05b6d" Selector="&lt;html app='chrome.exe' title='Ford Recalls | Ford Owner Support' /&gt;">
                 <ui:BrowserScope.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="546,699" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="546,699" sap2010:WorkflowViewState.IdRef="Sequence_15">
                       <Sequence.Variables>
+                        <Variable x:TypeArguments="sd:DataTable" Name="dTFiltered" />
                         <Variable x:TypeArguments="s:String[]" Name="arrRemoveList">
                           <Variable.Default>
                             <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;Issue Date&quot;,&quot;Description&quot;,&quot;Safety Risk&quot;,&quot;Remedy&quot;,&quot;Campaign/NHTSA#&quot;}" />
                           </Variable.Default>
                         </Variable>
-                        <Variable x:TypeArguments="sd:DataTable" Name="dTFiltered" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Structured Data 'DIV CLOCKSPRING'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='text' &gt;&lt;webctrl tag='div' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="484,107" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="10" SimulateClick="True">
+                      <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Structured Data 'DIV CLOCKSPRING'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='div' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="484,107" sap2010:WorkflowViewState.IdRef="ExtractData_5" MaxNumberOfResults="10" SimulateClick="True">
                         <ui:ExtractData.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="54723b6c-9429-41ca-bc0d-0a902804870d" InformativeScreenshot="730f17fa03168f182b08ef82cea9aef6" Selector="[string.Format(&quot;&lt;webctrl id='{0}' tag='DIV' /&gt;&quot;, aanameAttribute)]" WaitForReady="COMPLETE">
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fd3322e4-4fd1-4538-82a8-9f02cb1043af" InformativeScreenshot="3bdf7a5ba547108d92e413d5af9d7530" Selector="&lt;webctrl tag='DIV' innertext='*Issue Date*Description*Safety Risk*' parentclass='accordion-item ' parentid='recalls-section' /&gt;" WaitForReady="COMPLETE">
                             <ui:Target.TimeoutMS>
                               <InArgument x:TypeArguments="x:Int32" />
                             </ui:Target.TimeoutMS>
@@ -203,7 +196,7 @@ Where Not arrRemoveList.Contains(a)
 Select r = d).CopyToDataTable]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="484,318" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dTFiltered]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="484,318" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                         <ui:ForEachRow.Body>
                           <ActivityAction x:TypeArguments="sd:DataRow">
                             <ActivityAction.Argument>
