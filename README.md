@@ -20,4 +20,4 @@ UiPath with the REFramework
 - [Twitter](https://twitter.com/Klaus_in_Tech)
 - [Instagram](https://instagram.com/klaus_allan_?igshid=ZDdkNTZiNTM=)
 
-### Feel free to connect with me on my social as listed above. 😊
+### Feel free to connect with me on my socials as listed above. 😊
